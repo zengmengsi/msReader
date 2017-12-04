@@ -1,0 +1,33 @@
+<!--主体-->
+<view class="backGround">
+  <!--导航条-->
+  <scroll-view class="scroll-view_H" scroll-x='true'>
+    <text class="item" bindtap="toHome">首页</text>
+    <text wx:for="{{navbar}}" wx:key="*this" data-type="{{index}}" class="item" bindtap="toArticle">{{item}}</text>
+  </scroll-view>
+  <!--不可错过-->
+  <view wx:for="{{pageArr}}" wx:key="*this" class="mitem">
+    <image src="{{item.img}}" data-link="{{item.link}}" bindtap="topageInfo"></image>
+    <view class="mdes">
+      <view class="btitle">{{item.name}}</view>
+      <view class="bauther">作者:{{item.author}}</view>
+      <view class="binfo">{{item.msg}}</view>
+    </view>
+  </view>
+  <view class="pages" data-newpage="1" bindtap="toPages">首页</view>
+  <view class="pages" >{{toPage}}</view>
+  <view class="pages" data-newpage="{{toPage - 1}}" bindtap="toPages">上一页</view>
+  <view class="pagess" data-newpage="{{toPage + 0}}" bindtap="toPages">{{toPage +0}}</view>
+  <view class="pagess" data-newpage="{{toPage + 1}}" bindtap="toPages">{{toPage +1}}</view>
+  <view class="pagess" data-newpage="{{toPage + 2}}" bindtap="toPages">{{toPage +2}}</view>
+  <view class="pagess" data-newpage="{{toPage + 3}}" bindtap="toPages">{{toPage +3}}</view>
+  <view class="pagess" data-newpage="{{toPage + 4}}" bindtap="toPages">{{toPage +4}}</view>
+  <view class="pages" data-newpage="{{toPage + 1}}" bindtap="toPages">下一页</view>
+</view>
+
+<!--底步信息-->
+<view class="footer">
+  <view>©Copyright 全书网 2012, All rights reserved </view>
+  <view>全书网小说均由网友转载于网络，若转载中的书本侵犯了您的权益，请于本站管理员联系。 邮箱：quanshunet@gmail.com</view>
+  <view>Sitemap | 站长统计 | 蜀ICP备12018289号-3</view>
+</view>

@@ -1,0 +1,5 @@
+.line text{
+  color: darkgray;
+  font-size: 32rpx;
+  /*margin-right: 15rpx*/
+}

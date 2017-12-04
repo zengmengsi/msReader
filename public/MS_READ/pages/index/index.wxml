@@ -1,0 +1,78 @@
+<!--index.wxml-->
+
+<!--banner图-->
+<!--<swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>-->
+<!--主体-->
+<view class="backGround">
+  <view>
+
+    <!--导航条-->
+    <scroll-view class="scroll-view_H" scroll-x='true'>
+      <text class="item" bindtap="toHome">首页</text>
+      <text wx:for="{{navbar}}" wx:key="*this" data-type="{{index}}" class="item" bindtap="toArticle">{{item}}</text>
+    </scroll-view>
+    <!--Search-->
+    <view class="searchView">
+      <input type="search" placeholder="搜索" bindinput="userInput" />
+       <!-- <button bindtap="toSearch"> ssss </button>  -->
+    </view>
+  </view>
+  <!--推荐文章-->
+  <view class="myfav">我的</view>
+  <view>
+    <view class="classname">推荐文章</view>
+    <view wx:for="{{data0}}" wx:key="*this" class="bookitem">
+      <image src="{{item.img1}}" data-link="{{item.link}}" bindtap="topageInfo"></image>
+      <view class="btitle">{{item.name}}</view>
+      <view class="btype">类别:{{item.type}}</view>
+      <view class="bauther">作者:{{item.author}}</view>
+    </view>
+  </view>
+
+  <!--不可错过-->
+  <view>
+    <view class="classname">不可错过</view>
+    <view wx:for="{{data1}}" wx:key="*this" class="mitem">
+      <image src="{{item.img}}" data-link="{{item.link}}" bindtap="topageInfo"></image>
+      <view class="mdes">
+        <view class="btitle">{{item.name}}</view>
+        <view class="bauther">作者:{{item.author}}</view>
+        <view class="binfo">{{item.msg}}</view>
+        <view class="bauther" data-clink="{{item.pageUrl}}" bindtap="toContent"><span>更新：</span>{{item.page}}</view>
+      </view>
+    </view>
+
+    <!--列表-->
+    <view>
+      <view class="classname">刚刚更新</view>
+      <view wx:for="{{data2}}" wx:key="*this" class="line">
+        <!--<text>{{item.author}}</text　>-->
+        <em>{{item.type}}</em>
+        <text data-link="{{item.link}}" bindtap="topageInfo"> {{item.name}} </text><em bindtap="toContent" data-clink="{{item.pageUrl}}" bindtap="toContent">最新章节: {{item.page}}</em></view>
+    </view>
+    <view>
+      <view class="classname">排行榜</view>
+      <view wx:for="{{data3}}" wx:key="*this" class="line" data-link="{{item.link}}" bindtap="topageInfo"><span>{{item.num}}</span><em>{{item.type}}</em> {{item.name}} <em data-clink="{{item.pageUrl}}" bindtap="toContent">{{item.page}}</em></view>
+    </view>
+    <!--不能错过的精彩小说-->
+    <view>
+      <view class="classname">精彩小说</view>
+      <view wx:for="{{data4}}" wx:key="*this" class="items" data-link="{{item.link}}" bindtap="topageInfo">{{item.name}}</view>
+    </view>
+
+
+  </view>
+
+</view>
+<!--底步信息-->
+<view class="footer">
+  <view>©Copyright 2017, All rights reserved </view>
+  <view>小说均由网友转载于网络，若转载中的书本侵犯了您的权益，请于本站管理员联系</view>
+  <view>Sitemap | 站长统计 | 蜀ICP备12018289号-3</view>
+</view>

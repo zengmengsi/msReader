@@ -1,0 +1,41 @@
+<!--content.wxml-->
+<!--主体-->
+<view class="backGround">
+  <view>
+    <!--导航条-->
+    <scroll-view class="scroll-view_H" scroll-x='true'>
+      <text class="item" bindtap="toHome">首页</text>
+      <text wx:for="{{navbar}}" wx:key="*this" data-type="{{index}}" class="item" bindtap="toArticle">{{item}}</text>
+    </scroll-view>
+  </view>
+  <!--文章主体-->
+  <view>
+    <view class="con_line">
+      <ul>
+        <li bindtap="toChapter">目录</li>
+        <li>书架</li>
+        <li data-link="{{contentInfo.befoPage}}" bindtap="toContent">上一章</li>
+        <li data-link="{{contentInfo.nextPage}}" bindtap="toContent">下一章</li>
+      </ul>
+    </view>
+    <view class="classname nobgc">{{contentInfo.name}} {{contentInfo.link}}</view>
+    <view class="article">
+      <!--<view>　</view>-->
+      <text>{{contentInfo.msg}}</text>
+    </view>
+    <view class="con_line">
+      <ul>
+        <li bindtap="toChapter">目录</li>
+        <li>书架</li>
+        <li data-link="{{contentInfo.befoPage}}" bindtap="toContent">上一章</li>
+        <li data-link="{{contentInfo.nextPage}}" bindtap="toContent">下一章</li>
+      </ul>
+    </view>
+  </view>
+</view>
+<!--底步信息-->
+<view class="footer">
+  <view>©Copyright 全书网 2012, All rights reserved </view>
+  <view>全书网小说均由网友转载于网络，若转载中的书本侵犯了您的权益，请于本站管理员联系。 邮箱：quanshunet@gmail.com</view>
+  <view>Sitemap | 站长统计 | 蜀ICP备12018289号-3</view>
+</view>

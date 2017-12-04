@@ -1,0 +1,30 @@
+<!--content.wxml-->
+<!--主体-->
+<view class="backGround">
+  <view>
+    <!--导航条-->
+    <scroll-view class="scroll-view_H" scroll-x='true'>
+      <text class="item" bindtap="toHome">首页</text>
+      <text wx:for="{{navbar}}" wx:key="*this" data-type="{{index}}" class="item" bindtap="toArticle">{{item}}</text>
+    </scroll-view>
+  </view>
+  <!--文章主体-->
+  <view>
+    <view class="classname">{{name}}</view>
+    <view class="ch_author">
+      <span>作者:</span>
+      <text>{{author}}</text>
+    </view>
+    <view class="chapter">
+      <view data-next="{{next + 100}}" bindtap="toChapter">{{next + 100}}条 至 {{next + 200}}条 </view>
+      <view wx:for="{{pageArr}}" wx:key="*this" data-link="{{item.link}}" bindtap="toContent"> {{item.name}} </view>
+      <view data-next="{{next + 100}}" bindtap="toChapter">{{next + 100}}条 至 {{next + 200}}条 </view>
+    </view>
+  </view>
+</view>
+<!--底步信息-->
+<view class="footer">
+  <view>©Copyright 全书网 2012, All rights reserved </view>
+  <view>全书网小说均由网友转载于网络，若转载中的书本侵犯了您的权益，请于本站管理员联系。 邮箱：quanshunet@gmail.com</view>
+  <view>Sitemap | 站长统计 | 蜀ICP备12018289号-3</view>
+</view>

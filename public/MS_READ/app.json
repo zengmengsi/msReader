@@ -1,0 +1,17 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/author/author",
+    "pages/article/article",
+    "pages/chapter/chapter",
+    "pages/content/content",
+    "pages/pageInfo/pageInfo",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#c80227",
+    "navigationBarTitleText": "就是特想看",
+    "navigationBarTextStyle":"white"
+  }
+}

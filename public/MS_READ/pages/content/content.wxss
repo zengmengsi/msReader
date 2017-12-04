@@ -1,0 +1,23 @@
+.article{
+  padding: 2%;
+  /*text-align: left;
+  font-size: 26rpx;*/
+}
+.article text{
+  line-height: 150%;
+  letter-spacing: 0.1em;
+}
+.con_line span{
+ width: 20%;
+}
+.nobgc{
+  background-color: #fff;
+}
+.con_line li{
+  width:25%;
+display:inline-block;
+box-sizing:border-box;
+border:1px solid #999;
+text-align: center;
+padding:12rpx 0;
+}
