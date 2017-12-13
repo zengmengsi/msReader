@@ -130,7 +130,7 @@ page {
 }
 
 .bookitem {
-  float: left;
+  display: inline-block;
   width: 21.25%;
   margin-left: 3%;
   margin-top: 2%;
