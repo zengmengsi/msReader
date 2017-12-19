@@ -3,10 +3,10 @@
 <view class="backGround">
   <view>
     <!--导航条-->
-    <scroll-view class="scroll-view_H" scroll-x='true'>
+    <!--<scroll-view class="scroll-view_H" scroll-x='true'>
       <text class="item" bindtap="toHome">首页</text>
       <text wx:for="{{navbar}}" wx:key="*this" data-type="{{index}}" class="item" bindtap="toArticle">{{item}}</text>
-    </scroll-view>
+    </scroll-view>-->
   </view>
   <!--文章主体-->
   <view>

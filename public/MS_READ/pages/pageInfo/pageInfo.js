@@ -19,13 +19,6 @@ Page({
       console.log(data)
     })
   },
-  toArticle: function (event) {
-    var type = event.currentTarget.dataset.type + 1;
-    wx.navigateTo({
-      //接口调用成功的回调方法
-      url: "../../pages/article/article?type=" + type
-    })
-  },
   toChapter: function (event) {
     var link = event.currentTarget.dataset.link;
     console.log(link)
@@ -33,7 +26,7 @@ Page({
     var author = event.currentTarget.dataset.author;
     wx.navigateTo({
       //接口调用成功的回调方法
-      url: "../../pages/chapter/chapter?link=" + link + "&name=" + name + "&author=" + author
+      url: "../../pages/chapter/chapter?link=" + link
     })
   },
   toHome: function (event) {

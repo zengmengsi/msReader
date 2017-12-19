@@ -63,7 +63,7 @@ class QWERTYU:
         url= 'http://m.quanshuwang.com/book_'+str(pageName)+'.html'
         pageCode = self.getPage(url)
         # <li><a target="_blank" href="(.*?)" class="l mr10"><img  onerror="this.src='/modules/article/images/nocover.jpg'" src="(.*?)" alt="玛法战神" width="120" height="150"></a><img src="/kukuku/images/only2.png" class="topss png_bg"><span class="l"><a target="_blank" title="玛法战神" href="http://www.quanshuwang.com/book_110826.html" class="clearfix stitle">玛法战神</a>作者：<a href="/modules/article/authorarticle.php?author=%BD%AA%B4%F3%C5%DA">姜大炮</a><em class="c999 clearfix">    在人类与妖魔共存的世界，这里是拥有斗气，魔法与道术的玛...<a href="http://www.quanshuwang.com/book_110826.html">更多</a></em><a href="http://www.quanshuwang.com/book_110826.html" class="readTo">马上阅读</a></span></li>
-        pattern = re.compile('<img class="book_cover" src="(.*?)">.*?<h1>(.*?)</h1>.*?<ul class="intro"><li>.*?<a href=".*?">(.*?)</a></li>.*?<li id="hits">(.*?)</li>.*?<li>.*?<span>(.*?)</span>.*?<li>.*?<a  class="begin" href="/list/(.*?)_.*?.html">.*?<div class="detail_p">.*?<div>(.*?)</div>',re.S)
+        pattern = re.compile('<img class="book_cover" src="(.*?)" on.*?">.*?<h1>(.*?)</h1>.*?<ul class="intro"><li>.*?<a href=".*?">(.*?)</a></li>.*?<li id="hits">(.*?)</li>.*?<li>.*?<span>(.*?)</span>.*?<li>.*?<a  class="begin" href="/list/(.*?)_.*?.html">.*?<div class="detail_p">.*?<div>(.*?)</div>',re.S)
         items = re.findall(pattern,pageCode)
         #遍历正则表达式匹配的信息
         myClass= MyClass()
@@ -75,7 +75,6 @@ class QWERTYU:
             myClass.type = item[4]
             myClass.link = item[5]
             myClass.msg = item[6].replace("&nbsp;","").replace("<br />","\n")
-
             myClassDict = myClass.__dict__
             #打印字典
             # print (myClassDict)

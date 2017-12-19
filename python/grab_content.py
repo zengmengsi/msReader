@@ -52,31 +52,28 @@ class QWERTYU:
     def start(self):
         # print(u"抓取数据 --START-- ")
         # f=open('绝望教室.txt','a')
-        arr = []
         pageName = sys.argv[1];
         url= 'http://www.quanshuwang.com/book/'+str(pageName)+'.html'
         pageCode = self.getPage(url)
-        # <li><a target="_blank" href="(.*?)" class="l mr10"><img  onerror="this.src='/modules/article/images/nocover.jpg'" src="(.*?)" alt="玛法战神" width="120" height="150"></a><img src="/kukuku/images/only2.png" class="topss png_bg"><span class="l"><a target="_blank" title="玛法战神" href="http://www.quanshuwang.com/book_110826.html" class="clearfix stitle">玛法战神</a>作者：<a href="/modules/article/authorarticle.php?author=%BD%AA%B4%F3%C5%DA">姜大炮</a><em class="c999 clearfix">    在人类与妖魔共存的世界，这里是拥有斗气，魔法与道术的玛...<a href="http://www.quanshuwang.com/book_110826.html">更多</a></em><a href="http://www.quanshuwang.com/book_110826.html" class="readTo">马上阅读</a></span></li>
-        pattern = re.compile('<em class="l">(.*?)</em><strong class="l jieqi_title">(.*?)</strong>.*?<div class="mainContenr"   id="content"><script type="text/javascript">.*?</script>(.*?)<script type="text/javascript">.*?<a href="http://www.quanshuwang.com/book/(.*?).html" class="pre">.*?class="backfor">.*?</a><a href="http://www.quanshuwang.com/book/(.*?).html" class="next">',re.S)
+        pattern = re.compile('<em class="l">(.*?)</em><strong class="l jieqi_title">(.*?)</strong>.*?<div class="mainContenr"   id="content"><script type="text/javascript">.*?</script>(.*?)<script type="text/javascript">.*?class="next">',re.S)
         items = re.findall(pattern,pageCode)
         #遍历正则表达式匹配的信息
         myClass= MyClass()
         for item in items:
             myClass.name = item[0]
-            myClass.link = item[1].replace("章 节目录 ","\n")
-            myClass.msg = item[2].replace("&nbsp;&nbsp;&nbsp;&nbsp;","　　").replace("<br />\r\n<br />","\n")
+            # print item[0]
+            myClass.links = item[1].replace("章 节目录 ","\n")
+            # print item[1]
+            myClass.msg = item[2].replace("&nbsp;&nbsp;&nbsp;&nbsp;","　　").replace("<br />\r\n<br />","")
+            # print item[2]
             # print myClass.msg
-            myClass.befoPage = item[3]
-            myClass.nextPage = item[4]
 
             myClassDict = myClass.__dict__
             #打印字典
             #字典转化为json
             myClassJson = json.dumps(myClassDict)
-            #打印json数据
-            arr.append(myClassJson)
 
-        print arr[0]
+        print myClassJson
         # MyData.s = arr
         # MyData.t = arr1
         # MyDataDict = MyData.__dict__
