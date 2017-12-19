@@ -1,0 +1,24 @@
+<!--主体-->
+<view class="backGround">
+  <!--导航条-->
+  <scroll-view class="scroll-view_H" scroll-x='true'>
+    <text class="item" bindtap="toHome">首页</text>
+    <text wx:for="{{navbar}}" wx:key="*this" data-type="{{index}}" class="item" bindtap="toArticle">{{item}}</text>
+  </scroll-view>
+  <!--Search-->
+  <view class="searchView">
+    <input type="search" placeholder="搜索" bindinput="userInput" bindblur='toSearch' />
+  </view>
+  <!--不可错过-->
+  <view>
+    <view wx:for="{{pageArr}}" wx:key="*this" class="mitem">
+      <image src="{{item.img}}" data-link="{{item.link}}" bindtap="topageInfo"></image>
+      <view class="mdes">
+        <view class="btitle">{{item.name}}</view>
+        <view class="bauther">{{item.author}}</view>
+        <!-- <view class="binfo">{{item.msg}}</view> -->
+        <span>更新：</span>{{item.page}}
+      </view>
+    </view>
+  </view>
+</view>
