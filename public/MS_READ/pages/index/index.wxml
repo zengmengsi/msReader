@@ -1,17 +1,7 @@
 <!--index.wxml-->
-
-<!--banner图-->
-<!--<swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}">
-  <block wx:for="{{imgUrls}}">
-    <swiper-item>
-      <image src="{{item}}" class="slide-image" />
-    </swiper-item>
-  </block>
-</swiper>-->
 <!--主体-->
 <view class="backGround">
   <view>
-
     <!--导航条-->
     <scroll-view class="scroll-view_H" scroll-x='true'>
       <text class="item" bindtap="toHome">首页</text>
@@ -19,7 +9,7 @@
     </scroll-view>
     <!--Search-->
     <view class="searchView">
-      <input type="search" placeholder="搜索" bindinput="userInput" />
+      <input type="search" placeholder="搜索" bindinput="userInput" bindblur='toSearch'/>
        <!-- <button bindtap="toSearch"> ssss </button>  -->
     </view>
   </view>
@@ -44,7 +34,7 @@
         <view class="btitle">{{item.name}}</view>
         <view class="bauther">作者:{{item.author}}</view>
         <view class="binfo">{{item.msg}}</view>
-        <view class="bauther" data-clink="{{item.pageUrl}}" bindtap="toContent"><span>更新：</span>{{item.page}}</view>
+        <!-- <view class="bauther" data-clink="{{item.pageUrl}}" bindtap="toContent"><span>更新：</span>{{item.page}}</view> -->
       </view>
     </view>
 

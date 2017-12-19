@@ -44,7 +44,7 @@ page {
   height: 40rpx;
   line-height: 40rpx;
   /*background-color: #ffc530;*/
-  padding: 12rpx 0;
+  padding: 12rpx 0 0 0;
   /*color: #fff;*/
 }
 
@@ -194,7 +194,7 @@ page {
 }
 
 .binfo {
-  height: 75rpx;
+  height: 90rpx;
   color: #aca199;
 }
 
@@ -243,7 +243,7 @@ page {
   margin: 20rpx 0 0 0;
   padding: 20rpx 0 50rpx 0;
   text-align: center;
-  /*background-color: #fcd6bb;*/
+  background-color: #fcd6bb;
   font-size: 26rpx;
   /*color: #aca199;*/
   color:#ccc;

@@ -194,6 +194,7 @@ router.get('/search', function(req, res, next) {
                 page: $(this).children("p").eq(2).text()
             });
         })
+        console.log(returnData.data);
         res.json(returnData);
     })
 

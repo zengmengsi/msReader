@@ -1,7 +1,7 @@
 function getResponse(url, data, callback) {
   wx.request({
     method: 'GET',
-    url: "https://www.aisbi.com" + url,
+    url: "https://www.aisbi.com/api" + url,
     data: data,
     // header: headerObj,
     success: (res) => {

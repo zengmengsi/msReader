@@ -1,10 +1,9 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/author/author",
+    "pages/search/author",
     "pages/article/article",
     "pages/chapter/chapter",
-    "pages/content/content",
     "pages/pageInfo/pageInfo",
     "pages/logs/logs"
   ],

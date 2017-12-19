@@ -1,8 +1,8 @@
 //index.js
 //获取应用实例
-var http = require('../../utils/request');
-var app = getApp();
-var search = "";
+let http = require('../../utils/request');
+let app = getApp();
+let search = "";
 
 Page({
   data: {
@@ -16,52 +16,53 @@ Page({
     data4: [],
   },
   onLoad: function () {
-    var th = this;
+    let th = this;
+    search = "";
     http.getData("", { type: 1 }, function (data) {
-      var datarr = [];
-      for (var i = 0; i < data.length; i++) {
+      let datarr = [];
+      for (let i = 0; i < data.length; i++) {
         datarr.push(JSON.parse(data[i]));
       }
       th.setData({ data0: datarr });
     });
     http.getData("", { type: 2 }, function (data) {
-      var datarr = [];
-      for (var i = 0; i < data.length; i++) {
+      let datarr = [];
+      for (let i = 0; i < data.length; i++) {
         datarr.push(JSON.parse(data[i]));
       }
       th.setData({ data1: datarr });
     });
     http.getData("", { type: 3 }, function (data) {
-      var datarr = [];
-      for (var i = 0; i < data.length; i++) {
+      let datarr = [];
+      for (let i = 0; i < data.length; i++) {
         datarr.push(JSON.parse(data[i]));
       }
       th.setData({ data2: datarr });
     });
     http.getData("", { type: 4 }, function (data) {
-      var datarr = [];
-      for (var i = 0; i < data.length; i++) {
+      let datarr = [];
+      for (let i = 0; i < data.length; i++) {
         datarr.push(JSON.parse(data[i]));
       }
       th.setData({ data3: datarr });
     });
     http.getData("", { type: 5 }, function (data) {
-      var datarr = [];
-      for (var i = 0; i < data.length; i++) {
+      let datarr = [];
+      for (let i = 0; i < data.length; i++) {
         datarr.push(JSON.parse(data[i]));
       }
       th.setData({ data4: datarr });
     });
   },
   toArticle: function (event) {
-    var type = event.currentTarget.dataset.type + 1;
+    let type = event.currentTarget.dataset.type + 1;
     wx.navigateTo({
       //接口调用成功的回调方法
       url: "../../pages/article/article?type=" + type
     })
   },
   topageInfo: function (event) {
-    var link = event.currentTarget.dataset.link;
+    let link = event.currentTarget.dataset.link;
 
     wx.navigateTo({
       //接口调用成功的回调方法
@@ -69,11 +70,11 @@ Page({
     })
   },
   toContent: function (event) {
-    var clink = "" + event.currentTarget.dataset.clink;
+    let clink = "" + event.currentTarget.dataset.clink;
     console.log(clink)
     clink = clink.split("/");
-    var chapterLink = clink[0] + "/" + clink[1];
-    var link = clink[2];
+    let chapterLink = clink[0] + "/" + clink[1];
+    let link = clink[2];
     wx.navigateTo({
       //接口调用成功的回调方法
       url: "../../pages/content/content?link=" + link + "&chapterLink=" + chapterLink
@@ -91,10 +92,10 @@ Page({
   bindChange: function (e) {
     inputContent[e.currentTarget.id] = e.detail.value
   },
-  toSearch: function (event) {
+  toSearch: function () {
     wx.navigateTo({
       //接口调用成功的回调方法
-      url: "../../pages/author/author?search=" + search
+      url: "../../pages/search/author?search=" + search
     })
   }
 })

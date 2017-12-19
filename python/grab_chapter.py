@@ -71,7 +71,7 @@ class QWERTYU:
         myClass= MyClass()
         for item in items:
             myClass.link = item[0]
-            myClass.name = item[1].replace("&nbsp;&nbsp;&nbsp;&nbsp;","　")
+            myClass.name = item[1].replace("&nbsp;&nbsp;&nbsp;&nbsp;","　").split('[')[0]
 
             myClassDict = myClass.__dict__
             #打印字典

@@ -72,7 +72,7 @@ class QWERTYU:
                 myClassJson = json.dumps(myClassDict)
                 #打印json数据
                 arr.append(myClassJson)
-            print json.dumps(arr)
+            print json.dumps(arr[0:-2])
         if index==2 :
             pattern = re.compile('<img onerror=".*?"  src="(.*?)" width="120" height="150"></a><img src=".*?" class="topss png_bg"><span class="l"><a href="http://www.quanshuwang.com/book_(.*?).html"  title="(.*?)" class="clearfix stitle">.*?</a>.*?<a href="(.*?)">(.*?)</a><em class="c999 clearfix">(.*?)</em>.*?<a href="http://www.quanshuwang.com/book/(.*?).html"  title="(.*?)">',re.S)
             items = re.findall(pattern,pageCode)
@@ -94,7 +94,7 @@ class QWERTYU:
                 myClassJson = json.dumps(myClassDict)
                 #打印json数据
                 arr.append(myClassJson)
-            print json.dumps(arr)
+            print json.dumps(arr[0:-8])
 
         if index==3 :
             pattern = re.compile('<li><em class="r">(.*?)</em><a target="_blank" href=".*?" title=".*?">(.*?)</a>.*?<a href="http://www.quanshuwang.com/book_(.*?).html"  title=".*?" target="_blank" class="f14">(.*?)</a>.*?<a href="http://www.quanshuwang.com/book/(.*?).html"  target="_blank">(.*?)</a></li>',re.S)
@@ -152,7 +152,8 @@ class QWERTYU:
                 #字典转化为json
                 myClassJson = json.dumps(myClassDict)
                 #打印json数据
-                arr.append(myClassJson)
+                if len(item[1]) <= 6:
+                    arr.append(myClassJson)
             print json.dumps(arr)
 
 spider = QWERTYU()

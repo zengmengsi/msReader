@@ -1,23 +1,22 @@
-<!--content.wxml-->
-<!--主体-->
-<view class="backGround">
-  <view>
-    <!--导航条-->
-    <!--<scroll-view class="scroll-view_H" scroll-x='true'>
-      <text class="item" bindtap="toHome">首页</text>
-      <text wx:for="{{navbar}}" wx:key="*this" data-type="{{index}}" class="item" bindtap="toArticle">{{item}}</text>
-    </scroll-view>-->
-  </view>
-  <!--文章主体-->
-  <view>
-    <view class="chapter">
-      <view wx:for="{{pageArr}}" wx:key="*this" data-link="{{item.link}}" bindtap="toContent"> {{item.name}} </view>
+<view class="mpage {{!ui.tStart? 'withAnimate': ''}}" style="left:{{ui.offsetLeft}}px;width: {{ui.windowWidth}}px" bindtouchstart="handlerStart" catchtouchmove="handlerMove" bindtouchcancel="handlerCancel" bindtouchend="handlerEnd" bindtap="handlerPageTap">
+  <scroll-view scroll-y style="height: 100%;" bindscrolltolower='plusConent' bindscrolltoupper="lessConent">
+    <view>
+      <!--<view class="classname nobgc">{{contentInfo.name}}</view>-->
+      <view wx:for="{{contentInfo}}" wx:key="*this">
+        <view class="classname nobgc">{{item.links}}</view>
+        <view class="article">
+          <text>{{item.msg}}</text>
+        </view>
+      </view>
     </view>
+  </scroll-view>
+</view>
+<view bindtouchstart="handlerStart" catchtouchmove="handlerMove" bindtouchcancel="handlerCancel" bindtouchend="handlerEnd" class="user" style="width: {{ui.menuWidth}}px; height: 100%;">
+  <view style="width: {{ui.menuWidth}}px;left:{{-ui.menuWidth/3 + ui.offsetLeft/3}}px" class="user-box {{!ui.tStart? 'withAnimate': ''}}">
+    <scroll-view scroll-y style="height: 100%;" bindscrolltolower='addMessage'>
+      <view class="chapter">
+        <view wx:for="{{pageArr}}" wx:key="*this" data-link="{{index}}" bindtap="toContent"> {{item.name}} </view>
+      </view>
+    </scroll-view>
   </view>
 </view>
-<!--底步信息-->
-<!--<view class="footer">
-  <view>©Copyright 全书网 2012, All rights reserved </view>
-  <view>全书网小说均由网友转载于网络，若转载中的书本侵犯了您的权益，请于本站管理员联系。 邮箱：quanshunet@gmail.com</view>
-  <view>Sitemap | 站长统计 | 蜀ICP备12018289号-3</view>
-</view>-->
